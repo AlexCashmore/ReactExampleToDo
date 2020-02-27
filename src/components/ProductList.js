@@ -10,28 +10,37 @@ class ProductsList extends React.Component {
 
     renderProducts() {
         return (
-            this.props.products.map((product) => {
-                return (
-                    <Col key={product.id}>
-                        <ProductItem handleOnAdd={this.props.AddToCart.bind(this)} product={product} />
+                    <Col key={'todo'}>
+                        <ProductItem handleOnAdd={this.props.AddToCart.bind(this)} product={{id:this.props.shoppingCart.length+1,text:'',price:0,inventory:'',title:''}} />
                     </Col>
-                );
-            })
         );
+    }
+    scrollToBottom = () => {
+        this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+    };
+
+    componentDidMount() {
+        this.scrollToBottom();
+    }
+
+    componentDidUpdate() {
+        this.scrollToBottom();
     }
 
     render() {
         console.log(this.props);
         return (
-            <div style={{marginLeft:20}}>
-
-                <Row style={{margin:'15px'}}>
+            <div>
+                <Row>
                     <div style={{ display:'flex', justifyContent:'center'}}>
                     {this.renderProducts()}
                     </div>
                 </Row>
                 <Divider />
                 <Row><ShoppingCartContainer /></Row>
+                <div style={{ float:"left", clear: "both" }}
+                     ref={(el) => { this.messagesEnd = el; }}>
+                </div>
             </div>
         );
     }

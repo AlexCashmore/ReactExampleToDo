@@ -8,11 +8,8 @@ import {Navbar, NavItem} from "react-materialize";
 
 export default class Page extends Component {
     render() {
-        return(<div>
-            <Navbar className="grey" brand="Alex's Hardware Store" right>
-                <NavItem>Products</NavItem>
-                <NavItem>About</NavItem>
-                <NavItem>Contact Us</NavItem>
+        return(<div className="grey">
+            <Navbar className="grey" brand="Alex's To Do list" right>
             </Navbar>
             <ProductsListContainer/></div>)
     }

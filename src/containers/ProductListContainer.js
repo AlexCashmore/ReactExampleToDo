@@ -12,8 +12,8 @@ function mapStateToProps(state) {
     }
 }
 const mapDispatchToProps = (dispatch) => ({
-    AddToCart: (id) => {
-        dispatch(addToCart(id))
+    AddToCart: (id,text,time) => {
+        dispatch(addToCart(id,text,time))
     }
 });
 

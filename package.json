@@ -1,7 +1,7 @@
 {
   "name": "reactExample",
   "version": "1.0.0",
-  "description": "react example",
+  "description": "a test application to show use of react",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --port 3000",

@@ -18,35 +18,21 @@ export default class ShoppingCart extends Component {
         }, 0);
     }
 
+
     render() {
         if (this.props.shoppingCart.length !== 0) {
             return (
                 <div>
-
-                    <Table hoverable>
-                        <thead>
-                        <tr>
-                        <td style={{ width: '20%' }}>Item</td>
-                        <td style={{ width: '10%' }}>Price ($NZD)</td>
-                        <td >Remove</td>
-                        </tr>
-                        </thead>
-                        <tbody>
                         {this.props.shoppingCart.map(cartItem => {
                             return (
-                                    <CartItem key={cartItem.id}
+                                    <CartItem
+                                              key={cartItem.id}
                                               cartItem={cartItem}
                                               handleDelete={this.handleDelete.bind(this, cartItem.id)} />
                             );
                         })}
-                        </tbody>
-
-
-                    </Table>
                         <Divider/>
-
-                        <b>Total: $ {parseFloat(Math.round(this.total(this.props.shoppingCart) * 100) / 100).toFixed(2)}</b>
-
+                    <div id={'end'} ref="end" />
                 </div>
             );
         }
